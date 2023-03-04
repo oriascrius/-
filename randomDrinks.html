@@ -20,9 +20,36 @@
         margin-bottom: 1rem;
       }
 
-      #result {
+      .result {
         font-size: 2rem;
         font-weight: bold;
+        width: 4rem;
+        height: 4rem;
+        border: 1px solid #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation-name: slot;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+      }
+
+      @keyframes slot {
+        0% {
+          transform: translateY(0);
+        }
+        25% {
+          transform: translateY(-1.5rem);
+        }
+        50% {
+          transform: translateY(-3rem);
+        }
+        75% {
+          transform: translateY(-4.5rem);
+        }
+        100% {
+          transform: translateY(-6rem);
+        }
       }
     </style>
   </head>
@@ -83,7 +110,15 @@
 
     btn.addEventListener("click", () => {
       const randomIndex = Math.floor(Math.random() * data.length);
-      result.textContent = data[randomIndex];
+      let count = 0;
+      let intervalId = setInterval(() => {
+        result.textContent = data[Math.floor(Math.random() * data.length)];
+        count++;
+        if (count >= 20) {
+          clearInterval(intervalId);
+          result.textContent = data[randomIndex];
+        }
+      }, 150);
     });
   </script>
 </html>
