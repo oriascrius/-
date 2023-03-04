@@ -109,6 +109,7 @@
     const result = document.getElementById("result");
 
     btn.addEventListener("click", () => {
+      btn.disabled = true; // 禁用按鈕
       const randomIndex = Math.floor(Math.random() * data.length);
       let count = 0;
       let intervalId = setInterval(() => {
@@ -117,6 +118,7 @@
         if (count >= 20) {
           clearInterval(intervalId);
           result.textContent = data[randomIndex];
+          btn.disabled = false; // 啟用按鈕
         }
       }, 150);
     });
