@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      #btn {
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
+        margin-bottom: 1rem;
+      }
+
+      #result {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button id="btn">隨機抽選一間幸運飲料店</button>
+      <div id="result"></div>
+    </div>
+  </body>
+  <script>
+    const data = [
+      "茶湯會",
+      "大苑子",
+      "晴喜摘",
+      "可不可",
+      "天仁茗茶",
+      "麻古茶坊",
+      "Mr.Wish",
+      "萬波",
+      "康青龍",
+      "鶴茶樓",
+      "大牧茶飲",
+      "一沐日",
+      "龜記",
+      "迷客夏",
+      "五桐號",
+      "泰讚了",
+      "香飲子",
+      "大茗",
+      "再睡五分鐘",
+      "進發家",
+      "滿月茶作",
+      "一芳",
+      "烏弄",
+      "甘蔗媽媽",
+      "黛黛茶",
+      "上宇林",
+      "一手私藏",
+      "小職人",
+      "功夫茶",
+      "沐慕茶飲",
+      "茶聚",
+      "初韻",
+      "木木口",
+      "禮采芙",
+      "喫茶趣",
+      "藍鵲",
+      "米堤銀行鮮乳茶",
+      "老賴茶棧",
+      "魚池貳壹",
+      "京茶山",
+      "橘子工坊",
+      "奉茶",
+    ];
+
+    const btn = document.getElementById("btn");
+    const result = document.getElementById("result");
+
+    btn.addEventListener("click", () => {
+      const randomIndex = Math.floor(Math.random() * data.length);
+      result.textContent = data[randomIndex];
+    });
+  </script>
+</html>
